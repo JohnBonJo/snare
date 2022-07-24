@@ -175,10 +175,7 @@ class Cloner(object):
                     soup = await self.replace_links(data, level)
                     data = str(soup).encode()
                 elif content_type == "text/css":
-                    if self.css_validate == "False":
-                        css = cssutils.parseString(data, validate=False)
-                    else:
-                        css = cssutils.parseString(data)
+                    css = cssutils.parseString(data)
                     # css = cssutils.parseString(data, validate=self.css_validate)
                     # css = cssutils.parseString(data, validate=False)
                     for carved_url in cssutils.getUrls(css):
